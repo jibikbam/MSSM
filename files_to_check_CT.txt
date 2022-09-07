@@ -1,2 +1,0 @@
-lh.thickness
-rh.thickness
