@@ -1,0 +1,16 @@
+rh_subcortwm-0.5divgm.2.nii.gz
+rh_subcortwm-0.5divgm.4.nii.gz
+rh_subcortwm-0.5divgm.6.nii.gz
+rh_subcortwm-0.5divgm.8.nii.gz
+rh_subcortwm-1divgm.2.nii.gz
+rh_subcortwm-1divgm.4.nii.gz
+rh_subcortwm-1divgm.6.nii.gz
+rh_subcortwm-1divgm.8.nii.gz
+lh_subcortwm-0.5divgm.2.nii.gz
+lh_subcortwm-0.5divgm.4.nii.gz
+lh_subcortwm-0.5divgm.6.nii.gz
+lh_subcortwm-0.5divgm.8.nii.gz
+lh_subcortwm-1divgm.2.nii.gz
+lh_subcortwm-1divgm.4.nii.gz
+lh_subcortwm-1divgm.6.nii.gz
+lh_subcortwm-1divgm.8.nii.gz
