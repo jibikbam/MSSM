@@ -26,5 +26,5 @@ You get multiple features at each vertex of the participants' cortical surface (
 
 ## Papers
 Cite these papers if you use it
-- Jang, I., Li, B., Riphagen, J.M., Dickerson, B.C., Salat, D.H. and Alzheimer’s Disease Neuroimaging Initiative, 2022. Multiscale structural mapping of Alzheimer’s disease neurodegeneration. NeuroImage: Clinical, 33, p.102948.
-- Jang, I., Li, B., Rashid, B., Jacoby, J., Huang S.Y., Dickerson, B.C., Salat, D.H. and Alzheimer’s Disease Neuroimaging Initiative, 2024. Brain structural indicators of β-amyloid neuropathology. Neurobiology of Aging, ??, p.??.
+- Jang, I., Li, B., Riphagen, J.M., Dickerson, B.C., Salat, D.H. and Alzheimer’s Disease Neuroimaging Initiative, 2022. Multiscale structural mapping of Alzheimer’s disease neurodegeneration. NeuroImage: Clinical, 33, p.102948. [LINK](https://www.sciencedirect.com/science/article/pii/S2213158222000134)
+- Jang, I., Li, B., Rashid, B., Jacoby, J., Huang S.Y., Dickerson, B.C., Salat, D.H. and Alzheimer’s Disease Neuroimaging Initiative, 2024. Brain structural indicators of β-amyloid neuropathology. Neurobiology of Aging, ??, p.??. [LINK](https://www.sciencedirect.com/science/article/pii/S0197458024000058)
