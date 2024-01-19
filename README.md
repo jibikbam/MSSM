@@ -4,7 +4,7 @@ Multiscale Structural Mapping (MSSM) is a method for imaging biomarkers of neuro
 Microstructural properties (or indirect index of tissue microstructure) are captured by the contrast between cortical gray matter and subcortical white matter intensity at each vertex. We expand the contrast metrics to include tissue sampling from multiple points through the thickness of the cortical ribbon and subjacent white matter to obtain an array of intensity-linked features. The figure below demonstrates the process using a T1-weighted MR image. 
 
 <p align="center">
-    <img width="600" src="./img/genereateGWC.jpg"?raw=true> 
+    <img width="600" src="./img/genereateGWC.jpg?raw=true"> 
 Microstructural feature map generation using T1w
 </p>
 
