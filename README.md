@@ -4,13 +4,14 @@ Multiscale Structural Mapping (MSSM) is a method for imaging biomarkers of neuro
 Microstructural properties (or indirect index of tissue microstructure) are captured by the contrast between cortical gray matter and subcortical white matter intensity at each vertex. We expand the contrast metrics to include tissue sampling from multiple points through the thickness of the cortical ribbon and subjacent white matter to obtain an array of intensity-linked features. The figure below demonstrates the process using a T1-weighted MR image. 
 
 ![Alt text](./img/generateGWC.jpg?raw=true "GWC")
+* Microstructural feature map generation using T1w *
 
 Morphometry measures such as cortical thickness and curvature maps represent macrostructural properties. They are obtained by running [`recon-all`](https://surfer.nmr.mgh.harvard.edu/fswiki/recon-all) with [FreeSurfer](https://surfer.nmr.mgh.harvard.edu) toolbox.
 
 You get multiple features at each vertex of the participants' cortical surface (3D mesh). You can either use all these features or reduce the feature dimensionality. We used the partial least squares (PLS) method to have one metric at each vertex. From there, you either run statistical analyses or make a prediction model as you like. The figure below shows a flowchart.
 
 ![Alt text](./img/flowchart.jpg?raw=true "flowchart")
-
+* MSSM Flowchart *
 
 ## Environment
 - Linux (or Mac)
@@ -22,6 +23,15 @@ You get multiple features at each vertex of the participants' cortical surface (
 2. Run `recon-all -s <subjid> --all` in shell
 3. Copy or link the script into a directory that is on the $PATH. Usually /usr/bin and /usr/local/bin/ are on the path. So run `ln -s /path/to/mssm-script /usr/local/bin`
 4. Run `mssm -s <subjid>` in shell (WIP)
+
+
+## MSSM as Alzheimer's imaging biomarker (both at clinical and preclinical stages)
+- It provides enhanced ability to detect neurodegeneration in Alzheimer’s disease (AD) and mild cognitive impairment (MCI) compared to traditional measures such as cortical thickness and hippocampal volume.
+- It serves as structural indicators of β-amyloid neuropathology even in asymptomatic healthy adults.
+- It provides enhanced ability to detect amyloid positivity compared to conventional measures.
+
+![Alt text](./img/effect_amyloid.jpg?raw=true "effect_amyloid")
+* Effects of amyloid-β positivity on MSSM *
 
 
 ## Papers
