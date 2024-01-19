@@ -17,10 +17,11 @@ You get multiple features at each vertex of the participants' cortical surface (
 - [Freesurfer](https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall) (>=7.0 recommended)
 
 
-## How to run
+## How to run MSSM
 1. Prepare your subjects' or participants' brain images (e.g. 3D T1w, 3D T2w)
 2. Run `recon-all -s <subjid> --all` in shell
-3. Run `mssm -s <subjid>` in shell (WIP)
+3. Copy or link the script into a directory that is on the $PATH. Usually /usr/bin and /usr/local/bin/ are on the path. So run `ln -s /path/to/mssm-script /usr/local/bin`
+4. Run `mssm -s <subjid>` in shell (WIP)
 
 
 ## Papers
