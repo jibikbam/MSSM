@@ -12,7 +12,7 @@
 SUBJECTS_DIR=$1
 N_JOBS=$2
 SUBSTRING=$3
-CHECKLIST_CT="files_to_check_CT.txt"
+CHECKLIST_CT="files_to_check_thickness.txt"
 
 # Func1: register CT file to fsaverage
 register_CT2fsaverage(){
