@@ -6,10 +6,10 @@
 # Arguments: 1) SUBJECST_DIR, 2) nCPU (logical cores)
 #            3) SUBSTRING (dir name pattern) 4) FWHM
 #
-# Usage example: bash mssm-all.sh 
+# Usage example: bash mssm.sh 
 #                /vast/bandlab/studies/ADNI/recons 16 *acc* 10
 #
-# Note: suggested FHWM range: 5 ~ 20
+# Note: suggested FHWM range: 5 - 20 mm
 #   
 #############################################################
 
