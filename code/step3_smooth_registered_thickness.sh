@@ -14,7 +14,7 @@ SUBJECTS_DIR=$1
 N_JOBS=$2
 SUBSTRING=$3
 CHECKLIST_CT="files_to_check_thickness.txt"
-
+FWHM=$4
 
 # Func1: smooth CT maps that are already registered to fsaverage
 smooth(){
@@ -22,8 +22,8 @@ smooth(){
                     --src_type curv \
                     --trg_type curv \
                     --srcsurfval $SUBJECTS_DIR/$subj/surf/reg_surf2fsaverage/$1.thickness \
-                    --trgsurfval $SUBJECTS_DIR/$subj/surf/reg_surf2fsaverage_smoothed5mm/$1.thickness \
-                    --fwhm-trg 5 \
+                    --trgsurfval $SUBJECTS_DIR/$subj/surf/reg_surf2fsaverage_smoothed${FWHM}mm/$1.thickness \
+                    --fwhm-trg ${FWHM} \
                     --hemi $1
 }
 
@@ -32,13 +32,13 @@ smooth(){
 
 # generate smoothed CT maps (in parallel)
 cnt=0
-for subj in `ls $SUBJECTS_DIR -I fsaverage`; do
+for subj in $(ls $SUBJECTS_DIR | grep -v '^fsaverage$'); do
 
 if [[ $subj == $SUBSTRING ]]; then # optional
 
     all_files_exist=1
     while read file; do
-        if [ ! -e $SUBJECTS_DIR/$subj/surf/reg_surf2fsaverage_smoothed5mm/$file ]; then
+        if [ ! -e $SUBJECTS_DIR/$subj/surf/reg_surf2fsaverage_smoothed${FWHM}mm/$file ]; then
             all_files_exist=$((all_files_exist*0))
         fi
     done < $CHECKLIST_CT
@@ -47,7 +47,7 @@ if [[ $subj == $SUBSTRING ]]; then # optional
         echo "$subj: Cortical thickness maps are already smoothed."
     else
         echo "$subj: Spatially smoothing cortical thickness maps."
-        mkdir -p $SUBJECTS_DIR/$subj/surf/reg_surf2fsaverage_smoothed5mm
+        mkdir -p $SUBJECTS_DIR/$subj/surf/reg_surf2fsaverage_smoothed${FWHM}mm
         smooth "lh" &
         smooth "rh" &
         cnt=$((cnt+2))

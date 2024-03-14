@@ -32,6 +32,13 @@ nJOBS_2thick=$(( (nCPU/nPARALLEL_2thick)*nPARALLEL_2thick ))
 nJOBS_3GWR=$(( (nCPU/nPARALLEL_3GWR)*nPARALLEL_3GWR ))
 nJOBS_3thick=$(( (nCPU/nPARALLEL_3thick)*nPARALLEL_3thick ))
 
+# prevent zero-division error
+#if [ "$nJOBS_1" -eq 0 ]; then nJOBS_1=1; fi
+#if [ "$nJOBS_2GWR" -eq 0 ]; then nJOBS_2GWR=1; fi
+#if [ "$nJOBS_2thick" -eq 0 ]; then nJOBS_2thick=1; fi
+#if [ "$nJOBS_3GWR" -eq 0 ]; then nJOBS_3GWR=1; fi
+#if [ "$nJOBS_3thick" -eq 0 ]; then nJOBS_3thick=1; fi
+
 bash step1_generate_GM_WM_GWR.sh $SUBJECTS_DIR $nJOBS_1 $SUBSTRING && \
 bash step2_reg_surf2fsaverage_GWR.sh $SUBJECTS_DIR $nJOBS_2GWR $SUBSTRING && \
 bash step2_reg_surf2fsaverage_thickness.sh $SUBJECTS_DIR $nJOBS_2thick $SUBSTRING && \
