@@ -27,7 +27,7 @@ register_CT2fsaverage(){
 
 # generate registered CT files for every subject (in parallel)
 cnt=0
-for subj in `ls $SUBJECTS_DIR -I fsaverage`; do
+for subj in $(ls $SUBJECTS_DIR | grep -v '^fsaverage$'); do
 
 if [[ $subj == $SUBSTRING ]]; then # optional
 

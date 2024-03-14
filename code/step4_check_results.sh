@@ -16,9 +16,9 @@ CHECKLIST_GWR="files_to_check_GWR.txt"
 CHECKLIST_CT="files_to_check_thickness.txt"
 
 if [ "$SUBSTRING" == "*" ]; then
-    n_SUBJ=`ls -1 $SUBJECTS_DIR -I fsaverage | tr '\n' '\0' | xargs -0 -n 1 basename | wc -l`
+    n_SUBJ=`ls $SUBJECTS_DIR | grep -v '^fsaverage$' | tr '\n' '\0' | xargs -0 -n 1 basename | wc -l`
 else
-    n_SUBJ=`ls -ld $SUBJECTS_DIR/$SUBSTRING | wc -l`
+    n_SUBJ=`ls $SUBJECTS_DIR | grep -v '^fsaverage$' | wc -l`
 fi
 
 n_GWR=`wc -l < $CHECKLIST_GWR`
