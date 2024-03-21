@@ -14,8 +14,8 @@
 SUBJECTS_DIR=$1
 N_JOBS=$2
 SUBSTRING=$3
+FWHM=$4
 CHECKLIST_GWR="files_to_check_GWR.txt"
-
 
 # Func1: smooth GWR,GM,WM maps that are already registered to fsaverage
 smooth(){
@@ -23,8 +23,8 @@ smooth(){
     for file in `ls $SUBJECTS_DIR/$subj/mri/GWC/reg_surf2fsaverage/*$1* | xargs -n 1 basename`; do
         mri_surf2surf   --s fsaverage \
                         --srcsurfval $SUBJECTS_DIR/$subj/mri/GWC/reg_surf2fsaverage/$file \
-                        --trgsurfval $SUBJECTS_DIR/$subj/mri/GWC/reg_surf2fsaverage_smoothed5mm/$file \
-                        --fwhm-trg 5 \
+                        --trgsurfval $SUBJECTS_DIR/$subj/mri/GWC/reg_surf2fsaverage_smoothed${FWHM}mm/$file \
+                        --fwhm-trg ${FWHM} \
                         --hemi "$1" &
     done
 }
@@ -34,13 +34,13 @@ smooth(){
 
 ## Generate smoothed GWR,GM,WM maps for lh (in parallel)
 cnt=0
-for subj in `ls $SUBJECTS_DIR -I fsaverage`; do
+for subj in $(ls $SUBJECTS_DIR | grep -v '^fsaverage$'); do
 
 if [[ $subj == $SUBSTRING ]]; then # optional
 
     all_files_exist=1
     while read file; do
-        if [ ! -e $SUBJECTS_DIR/$subj/mri/GWC/reg_surf2fsaverage_smoothed5mm/$file ]; then
+        if [ ! -e $SUBJECTS_DIR/$subj/mri/GWC/reg_surf2fsaverage_smoothed${FWHM}mm/$file ]; then
             all_files_exist=$((all_files_exist*0))
         fi
     done < $CHECKLIST_GWR
@@ -49,7 +49,7 @@ if [[ $subj == $SUBSTRING ]]; then # optional
         echo "$subj: GWR/GM/WM maps are already smoothed."
     else
         echo "$subj: Spatially smoothing GWR/GM/WM maps (lh)."
-        mkdir -p $SUBJECTS_DIR/$subj/mri/GWC/reg_surf2fsaverage_smoothed5mm
+        mkdir -p $SUBJECTS_DIR/$subj/mri/GWC/reg_surf2fsaverage_smoothed${FWHM}mm
         smooth "lh"
         cnt=$((cnt+14))
     fi
@@ -64,13 +64,13 @@ wait
 
 ## Generate smoothed GWR,GM,WM maps for rh (in parallel)
 cnt=0
-for subj in `ls $SUBJECTS_DIR -I fsaverage`; do
+for subj in $(ls $SUBJECTS_DIR | grep -v '^fsaverage$'); do
 
 if [[ $subj == $SUBSTRING ]]; then # optional
 
     all_files_exist=1
     while read file; do
-        if [ ! -e $SUBJECTS_DIR/$subj/mri/GWC/reg_surf2fsaverage_smoothed5mm/$file ]; then
+        if [ ! -e $SUBJECTS_DIR/$subj/mri/GWC/reg_surf2fsaverage_smoothed${FWHM}mm/$file ]; then
             all_files_exist=$((all_files_exist*0))
         fi
     done < $CHECKLIST_GWR
