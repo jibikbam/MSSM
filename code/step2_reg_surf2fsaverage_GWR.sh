@@ -35,7 +35,7 @@ register_GWR2fsaverage(){
 
 # Generate registered GWR,GM,WM maps for every subject - left hemi
 cnt=0
-for subj in `ls $SUBJECTS_DIR -I fsaverage`; do
+for subj in $(ls $SUBJECTS_DIR | grep -v '^fsaverage$'); do
 
 if [[ $subj == $SUBSTRING ]]; then # optional
 
@@ -65,7 +65,7 @@ wait
 
 # Generate registered GWR,GM,WM maps for every subject - right hemi
 cnt=0
-for subj in `ls $SUBJECTS_DIR -I fsaverage`; do
+for subj in $(ls $SUBJECTS_DIR | grep -v '^fsaverage$'); do
 
 if [[ $subj == $SUBSTRING ]]; then # optional
 

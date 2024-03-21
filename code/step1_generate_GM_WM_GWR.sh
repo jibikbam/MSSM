@@ -58,12 +58,12 @@ GWR(){
 
 # Create a sympolic link for fsaverage
 if [ ! -f $SUBJECTS_DIR/fsaverage ]; then
-    ln -s /autofs/cluster/freesurfer/centos7_x86_64/7.2.0/subjects/fsaverage $SUBJECTS_DIR
+    ln -s $FREESURFER_HOME/subjects/fsaverage $SUBJECTS_DIR
 fi
 
 # Create identity registration file for every subject (in parallel)
 cnt=0
-for subj in `ls $SUBJECTS_DIR -I fsaverage`; do  # -I: exception
+for subj in $(ls $SUBJECTS_DIR | grep -v '^fsaverage$'); do  # ^: exception
 
 if [[ $subj == $SUBSTRING ]]; then # optional
 
@@ -91,7 +91,7 @@ wait
 
 # Generate WM intensity surfaces for every subject
 cnt=0
-for subj in `ls $SUBJECTS_DIR -I fsaverage`; do  # -I: exception
+for subj in $(ls $SUBJECTS_DIR | grep -v '^fsaverage$'); do  # ^: exception
     
 if [[ $subj == $SUBSTRING ]]; then # optional
 
@@ -123,7 +123,7 @@ wait
 
 # Generate GM intensity surfaces for every subject
 cnt=0
-for subj in `ls $SUBJECTS_DIR -I fsaverage`; do  # -I: exception
+for subj in $(ls $SUBJECTS_DIR | grep -v '^fsaverage$'); do  # ^: exception
    
 if [[ $subj == $SUBSTRING ]]; then # optional
 
@@ -159,7 +159,7 @@ wait
 
 # Generate GWR maps for every subject
 cnt=0
-for subj in `ls $SUBJECTS_DIR -I fsaverage`; do  # -I: exception
+for subj in $(ls $SUBJECTS_DIR | grep -v '^fsaverage$'); do  # ^: exception
    
 if [[ $subj == $SUBSTRING ]]; then # optional
 
